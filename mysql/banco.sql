@@ -7,6 +7,10 @@ CREATE TABLE IF NOT EXISTS usuarios (
     senha VARCHAR(255) NOT NULL,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+CREATE TABLE IF NOT EXISTS Clientes (
+
+);
+
 
 CREATE TABLE IF NOT EXISTS pedidos (
     Id_pedidos INT AUTO_INCREMENT PRIMARY KEY,
@@ -17,3 +21,71 @@ CREATE TABLE IF NOT EXISTS pedidos (
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
         ON DELETE CASCADE
 );
+
+CREATE TABLE IF NOT EXISTS maquinarios (
+
+);
+CREATE TABLE IF NOT EXISTS funcionários (
+
+);
+
+CREATE TABLE IF NOT EXISTS pagamentos (
+
+);
+CREATE TABLE IF NOT EXISTS categorias (
+
+);
+CREATE TABLE IF NOT EXISTS manutencoes (
+
+);
+
+
+
+
+
+
+
+
+
+CREATE TABLE IF NOT EXISTS enderecos_entrega (
+
+);
+CREATE TABLE IF NOT EXISTS contratos (
+
+);
+
+
+CREATE TABLE IF NOT EXISTS devolucoes (
+
+);
+
+
+
+
+
+
+
+
+
+    
+
+
+CREATE TABLE IF NOT EXISTS maquinarios_inutilizados (
+motivo VARCHAR(255) NOT NULL, 
+data_inicio DATE NOT NULL,    
+data_previsao_volta DATE,     
+status ENUM('em_manutencao', 'per)
+);
+
+
+CREATE TABLE IF NOT EXISTS maquinarios (
+
+);
+CREATE TABLE IF NOT EXISTS manutencoes (
+
+);
+    
+
+
+
+
