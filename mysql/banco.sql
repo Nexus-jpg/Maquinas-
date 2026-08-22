@@ -68,15 +68,6 @@ CREATE TABLE IF NOT EXISTS devolucoes (
 
 
 
-
-
-
-
-
-
-    
-
-
 CREATE TABLE IF NOT EXISTS maquinarios_inutilizados (
 motivo VARCHAR(255) NOT NULL, 
 data_inicio DATE NOT NULL,    
@@ -85,12 +76,7 @@ status ENUM('em_manutencao', 'per)
 );
 
 
-CREATE TABLE IF NOT EXISTS maquinarios (
 
-);
-CREATE TABLE IF NOT EXISTS manutencoes (
-
-);
     
 
 
