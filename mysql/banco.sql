@@ -10,5 +10,10 @@ CREATE TABLE IF NOT EXISTS usuarios (
 
 CREATE TABLE IF NOT EXISTS pedidos (
     Id_pedidos INT AUTO_INCREMENT PRIMARY KEY,
-
+    usuario_id INT NOT NULL,
+    valor DECIMAL(10,2) NOT NULL,
+    data_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_pedidos_usuarios 
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        ON DELETE CASCADE
 );
