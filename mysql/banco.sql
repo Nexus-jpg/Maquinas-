@@ -8,7 +8,14 @@ CREATE TABLE IF NOT EXISTS usuarios (
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 CREATE TABLE IF NOT EXISTS Clientes (
-
+id INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT UNIQUE NOT NULL, 
+    nome_completo VARCHAR(100) NOT NULL,
+    cpf_cnpj VARCHAR(20) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NOT NULL,
+    CONSTRAINT fk_clientes_usuarios 
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id) 
+        ON DELETE CASCADE
 );
 
 
