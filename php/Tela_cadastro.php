@@ -35,38 +35,38 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>cadastro</title>
+  <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
+    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/Tela_cadastro.css">
 </head>
 
 <body>
-    <div class="formulario">
+     <header class="head">
+        <nav class="navbar">
 
-        <form action="action_page.php" method="post">
+            <a href="Tela_inicial.php">Inicio</a>
+            <a href="Tela_produtos.php">Maquinarios</a>
+            <a href="Tela_pedidos.php">pedidos</a>
+            <a href="Tela_cadastro.php">cadastro</a>
+            <a href="">sobre nós</a>
+        </nav>
+        <form action="" class="search-bar">
+            <input type="text" placeholder="Pesquisa...">
+            <button type="submit">
 
-
-            <div class="usuario">
-
-                <label for="Usuario_id">Usuário</label>
-                <input type="text" id="Usuario_id" name="Usuario_id" placeholder="Nome do usuário" required>
-
-            </div>
-            <br>
-
-            <div class="senha">
-
-                <label for="senha_login">Senha</label>
-                <input type="password" id="senha_login" name="senha_login" placeholder="Senha" required>
-
-
-            </div>
-            <br>
-            <div class="buttom_login">
-                <input type="submit" value="Confirmar">
-            </div>
-
-
-
+            </button>
         </form>
+
+
+
+
+
+    </header>
+
+
+    <script src="Tela_cadastro.js"></script>
 
 
 
