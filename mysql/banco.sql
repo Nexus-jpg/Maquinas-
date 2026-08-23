@@ -30,8 +30,18 @@ CREATE TABLE IF NOT EXISTS pedidos (
 );
 
 CREATE TABLE IF NOT EXISTS maquinarios (
-
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(100) NOT NULL,
+    descricao TEXT,
+    categoria VARCHAR(50),
+    valor_diaria DECIMAL(10,2) NOT NULL,
+    status ENUM('disponivel', 'alugado', 'manutencao') DEFAULT 'disponivel',
+    imagem VARCHAR(255)
 );
+
+
+
+
 CREATE TABLE IF NOT EXISTS funcionários (
 
 );
