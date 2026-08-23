@@ -2,11 +2,22 @@
 
 
 require_once '../conector/conexao.php';
+$termo_busca = isset($_GET['busca']) ? $_GET['busca'] : '';
 
+if (!empty($termo_busca)) {
+    $sql = "SELECT * FROM maquinarios WHERE nome LIKE :busca OR categoria LIKE :busca";
+    $stmt = $pdo->prepare($sql);
+    $stmt->execute([':busca' => '%' . $termo_busca . '%']);
+} 
+else {
+    $sql = "SELECT * FROM maquinarios";
+    $stmt = $pdo->query($sql);
+}
 
-
+$maquinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 ?>
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
