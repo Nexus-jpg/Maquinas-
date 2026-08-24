@@ -1,9 +1,41 @@
 <?php
+require_once '../conector/conexao.php';
 
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $usuario_id    = $_POST['usuario_id'];
+    $maquinario_id = $_POST['maquinario_id'];
+    $data_inicio   = $_POST['data_inicio'];
+    $data_fim      = $_POST['data_fim'];
+    $inicio = new DateTime($data_inicio);
+    $fim    = new DateTime($data_fim);
+    $diferenca = $inicio->diff($fim);
+    $dias = $diferenca->days;
+    
+    if ($dias <= 0) {
+        $dias = 1; 
+    }
 
+    $stmt = $pdo->prepare("SELECT valor_diaria FROM maquinarios WHERE id = :id");
+    $stmt->execute([':id' => $maquinario_id]);
+    $maquina = $stmt->fetch(PDO::FETCH_ASSOC);
 
+    if ($maquina) {
+        $valor_total = $dias * $maquina['valor_diaria'];
+        $sql = "INSERT INTO pedidos (usuario_id, maquinario_id, valor, data_inicio, data_fim) 
+                VALUES (:usuario, :maquina, :valor, :inicio, :fim)";
+        
+        $stmt_insert = $pdo->prepare($sql);
+        $stmt_insert->execute([
+            ':usuario' => $usuario_id,
+            ':maquina' => $maquinario_id,
+            ':valor'   => $valor_total,
+            ':inicio'  => $data_inicio,
+            ':fim'     => $data_fim
+        ]);
 
-
+        echo "Pedido realizado com sucesso Total: R$ " . number_format($valor_total, 2, ',', '.');
+    }
+}
 ?>
 
 
@@ -48,7 +80,19 @@
 
 
     </header>
+    
+<form action="Tela_pedidos.php" method="POST">
+    <input type="hidden" name="usuario_id" value="1">
+    <input type="hidden" name="maquinario_id" value="1">
 
+    <label>Data de Início:</label>
+    <input type="date" name="data_inicio" required>
+
+    <label>Data de Término:</label>
+    <input type="date" name="data_fim" required>
+
+    <button type="submit">Finalizar Pedido</button>
+</form>
 
     <script src="Tela_cadastro.js"></script>
 
