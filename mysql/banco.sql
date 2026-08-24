@@ -37,7 +37,7 @@ CREATE TABLE IF NOT EXISTS pedidos (
 );
 
 CREATE TABLE IF NOT EXISTS maquinarios (
-    id INT AUTO_INCREMENT PRIMARY KEY,
+    id_maquinario INT AUTO_INCREMENT PRIMARY KEY,
     nome VARCHAR(100) NOT NULL,
     descricao TEXT,
     categoria VARCHAR(50),
