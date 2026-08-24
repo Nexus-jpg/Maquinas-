@@ -7,6 +7,7 @@ CREATE TABLE IF NOT EXISTS usuarios (
     senha VARCHAR(255) NOT NULL,
     criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
 CREATE TABLE IF NOT EXISTS Clientes (
 id INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT UNIQUE NOT NULL, 
@@ -43,11 +44,20 @@ CREATE TABLE IF NOT EXISTS maquinarios (
 
 
 CREATE TABLE IF NOT EXISTS funcionários (
+id_funcionario PRIMARY KEY INT AUTO_INCREMENT,
+nome_funcionario VARCHAR(100) NOT NULL,
+genero CHAR(1) NOT NULL CHECK (genero IN ('M', 'F'))
+nacionalidade VARCHAR(100) NOT NULL,
+dataNasce DATETIME DEFAULT CURRENT_TIMESTAMP,
+cargo VARCHAR(67) NOT NULL,
+salario FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+tempoEmpresa DATETIME DEFAULT CURRENT_TIMESTAMP
 
 );
 
 CREATE TABLE IF NOT EXISTS pagamentos (
-
+extrato
+salario01 DECIMAL (10,2) NOT NULL,
 );
 CREATE TABLE IF NOT EXISTS categorias (
 
