@@ -29,19 +29,30 @@ $maquinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 </head>
 <body>
 
-<div class="titulo">
-Bem vindo a nossa empresa.
+      <header class="head">
+        <nav class="navbar">
 
-</div>
+            <a href="Tela_inicial.php">Inicio</a>
+            <a href="Tela_produtos.php">Maquinarios</a>
+            <a href="Tela_pedidos.php">pedidos</a>
+            <a href="Tela_cadastro.php">cadastro</a>
+            <a href="">sobre nós</a>
+        </nav>
+        <form action="" class="search-bar">
+            <input type="text" placeholder="Pesquisa...">
+            <button type="submit">
+
+            </button>
+        </form>
 
 
- <div class="maquinarios_subtitulo">Nossos maquinarios</div>
-  <img src="" alt="">
-    
-<form action="Tela_inicial.php" method="GET">
-    <input type="text" name="busca" placeholder="Digite o maquinário...">
-    <button type="submit">Buscar</button>
-</form>
+
+
+
+    </header>
+
+
+    <script src="Tela_cadastro.js"></script>
 
  
 
