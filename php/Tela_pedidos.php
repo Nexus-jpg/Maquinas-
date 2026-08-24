@@ -22,6 +22,32 @@
 <body>
     <h1>Agendamento</h1>
     <h2>Pedidos:</h2>
+   <header class="head">
+        <nav class="navbar">
+
+            <a href="Tela_inicial.php">Inicio</a>
+            <a href="Tela_produtos.php">Maquinarios</a>
+            <a href="Tela_pedidos.php">pedidos</a>
+            <a href="Tela_cadastro.php">cadastro</a>
+            <a href="">sobre nós</a>
+        </nav>
+        <form action="" class="search-bar">
+            <input type="text" placeholder="Pesquisa...">
+            <button type="submit">
+
+            </button>
+        </form>
+
+
+
+
+
+    </header>
+
+
+    <script src="Tela_cadastro.js"></script>
+
+    
     
      
 
