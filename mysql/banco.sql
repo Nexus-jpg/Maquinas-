@@ -23,10 +23,16 @@ id INT AUTO_INCREMENT PRIMARY KEY,
 CREATE TABLE IF NOT EXISTS pedidos (
     Id_pedidos INT AUTO_INCREMENT PRIMARY KEY,
     usuario_id INT NOT NULL,
+    maquinario_id INT NOT NULL,
     valor DECIMAL(10,2) NOT NULL,
+    data_inicio DATE NOT NULL, 
+    data_fim DATE NOT NULL,
     data_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
     CONSTRAINT fk_pedidos_usuarios 
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        ON DELETE CASCADE,
+    CONSTRAINT fk_pedidos_maquinarios 
+        FOREIGN KEY (maquinario_id) REFERENCES maquinarios(id)
         ON DELETE CASCADE
 );
 
