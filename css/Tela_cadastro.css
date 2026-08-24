@@ -59,8 +59,17 @@
 
 }
 
-.search-bar input{
-    
+.search-bar input {
+   width: 100%;
+   background: transparent;
+   border: none;
+   outline: none;
+   font-size: 16px;
+   color: #e4e4e4;
+
 }
+.search-bar input: :placeholder{
+    color: #e4e4e4;
+    
 
-
+}
