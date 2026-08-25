@@ -1,6 +1,7 @@
 
 <?php
-require_once 'conexao.php';
+require_once '../conector/conexao.php';
+$id_do_maquinario= 01010;
 
 
 ?>
