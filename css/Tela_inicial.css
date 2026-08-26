@@ -1,5 +1,135 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+  
+  background: url('img/image\ 1.png') no-repeat center center/cover;
+  background-color: #1a1a1d;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.top-nav {
+  display: flex;
+  gap: 15px;
+  padding: 20px 40px;
+}
+
+.nav-btn {
+  background-color: #d4c022;
+  color: #ffffff;
+  text-decoration: none;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  padding: 8px 24px;
+  border-radius: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.nav-btn:hover {
+  background-color: #e6d328;
+  transform: translateY(-2px);
+}
+
+.main-container {
+  position: relative;
+  flex: 1;
+  padding: 20px 60px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.hero-title {
+  color: #ffcc00;
+  font-family: 'Oswald', sans-serif;
+  font-size: 54px;
+  line-height: 1.1;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  max-width: 500px;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+}
+
+.hero-title .highlight {
+  color: #ffcc00;
+}
+
+.description-text {
+  max-width: 320px;
+  text-align: right;
+  color: #ffffff;
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 500;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.9);
+}
+
+.logo-container {
+  position: absolute;
+  bottom: 20px;
+  left: 60px;
+}
+
+.main-logo {
+  max-width: 280px;
+  height: auto;
+}
+
+.bottom-bar {
+  background-color: #1b1c22;
+  height: 50px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 0 40px;
+  position: relative;
+  border-top: 1px solid #333;
+}
+
+.footer-info {
+  color: #ffffff;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.btn-login {
+  background-color: #ffcc00;
+  color: #000;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 6px 30px;
+  border-radius: 4px;
+}
+
+.btn-register {
+  background-color: #2b2c34;
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 11px;
+  padding: 6px 20px;
+  border-radius: 4px;
+  border: 1px solid #444;
 }
