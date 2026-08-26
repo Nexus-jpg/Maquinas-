@@ -21,46 +21,52 @@ $maquinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>primeira página</title>
-    <link href="https://cdn.boxicons.com/3.0.8/fonts/basic/boxicons.min.css" rel="stylesheet">
-    <link href="https://cdn.boxicons.com/3.0.8/fonts/filled/boxicons-filled.min.css" rel="stylesheet">
-    <link href="https://cdn.boxicons.com/3.0.8/fonts/brands/boxicons-brands.min.css" rel="stylesheet">
-    
-    <link rel="stylesheet" href="css/Tela_inicial.css">
-    
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HeavyRent - Início</title>
+  <link rel="stylesheet" href="teste01.css">
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+  <header class="top-nav">
+    <a href="Tela_inicial.php" class="nav-btn active">INÍCIO</a>
+    <a href="Tela_produtos.php" class="nav-btn">CATÁLOGO</a>
+    <a href="Tela_pedidos.php" class="nav-btn">PEDIDOS</a>
+    <a href="#" class="nav-btn">AGENDAMENTO</a>
+    <a href="#" class="nav-btn">SAIBA MAIS</a>
+  </header>
 
-      <header class="head">
-        <nav class="navbar">
+  <main class="main-container">
+    
+    <h1 class="hero-title">
+      O PESO DA<br>
+      EXPERIÊNCIA A<br>
+      SERVIÇO DA <span class="highlight">SUA</span><br>
+      <span class="highlight">OBRA.</span>
+    </h1>
 
-            <a href="Tela_inicial.php">Inicio</a>
-            <a href="Tela_produtos.php">Maquinarios</a>
-            <a href="Tela_pedidos.php">pedidos</a>
-            <a href="Tela_cadastro.php">cadastro</a>
-            <a href="">sobre nós</a>
-        </nav>
-        <form action="" class="search-bar">
-            <input type="text" placeholder="Pesquisa...">
-            <button type="submit">
+    <div class="description-text">
+      <p>
+        Alugue guindastes, betoneiras e britadeiras com agendamento direto, 
+        frota inspecionada e operadores certificados. Menos burocracia, 
+        máxima produtividade na sua obra.
+      </p>
+    </div>
 
-            </button>
-        </form>
+    <div class="logo-container">
+      <img src="img/logo.png" alt="HeavyRent Logo" class="main-logo">
+    </div>
 
+  </main>
 
-
-
-
-    </header>
-
-
-    <script src="Tela_cadastro.js"></script>
-
- 
-
-
+  <footer class="bottom-bar">
+    <span class="footer-info">LOGÍSTICA SEGURA EM TODO O BRASIL</span>
+    
+    <div class="auth-buttons">
+      <a href="Tela_cadastro.php" class="btn-login">LOGIN</a>
+      <a href="Tela_cadastro.php" class="btn-register">CADASTRE-SE</a>
+    </div>
+  </footer>
 
 </body>
 </html>
