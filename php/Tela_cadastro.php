@@ -25,14 +25,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Cadastro</title>
-  <link rel="stylesheet" href="css/Tela_inicial.css">
+ <link rel="stylesheet" href="css/Tela_cadastro.css?v=<?php echo time(); ?>">
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
 </head>
 <body>
 
   <div class="card-container">
     <div class="logo-section">
-      <img src="logo.png" alt="Sua Logo Aqui" class="logo-img">
+      <img src="logo.png" alt="Logo Aqui" class="logo-img">
     </div>
 
     <div class="divider"></div>
