@@ -4,7 +4,7 @@
 ##Resumo:
 Este projeto tem como principal finalidade a simulação de um site funcional de uma empresa de maquinários. Ele foi estruturado com PHP, MySQL, CSS, JS e HTML, seguindo à risca as orientações do docente.
 
-##Descrição: 
+##Descrição: O sistema oferece uma interface interativa onde os clientes podem consultar o catálogo de máquinas, realizar cadastros, agendamentos e gerenciar pedidos de forma rápida e intuitiva.
 
 
 
