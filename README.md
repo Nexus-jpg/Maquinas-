@@ -13,6 +13,11 @@ As principais funções deste projeto são a interação com o banco de dados e 
 
 
 ##Com o que foi contruido(tecnologias):
+- **HTML5:** Estruturação das páginas.
+- **CSS3:** Estilização e layout responsivo.
+- **JavaScript:** Interatividade do cliente e validações.
+- **PHP:** Lógica do servidor e rotas da aplicação.
+- **MySQL:** Banco de dados relacional.
 
 Linguagem:
 
