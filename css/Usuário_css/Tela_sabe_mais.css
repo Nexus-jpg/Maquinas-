@@ -2,4 +2,138 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+body {
+    background-color: #1a1c23;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background-color: #1a1c23;
+}
+
+.nav-links {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-nav {
+    background-color: #d4c20d;
+    color: #000;
+    text-decoration: none;
+    padding: 10px 24px;
+    border-radius: 20px;
+    font-weight: bold;
+    font-size: 14px;
+    transition: opacity 0.2s;
+}
+
+.btn-nav:hover {
+    opacity: 0.9;
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.logo {
+    max-height: 50px;
+    width: auto;
+}
+
+.main-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.card-outer {
+    width: 100%;
+    max-width: 650px;
+    background-color: #313644;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.card-header {
+    height: 100px;
+    background-color: #cbb800;
+}
+
+.card-inner {
+    background-color: #1d1f24;
+    margin: -60px 20px 20px 20px;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #cbb800;
+    position: relative;
+}
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: #cbb800;
+    margin-bottom: 8px;
+    font-size: 14px;
+}
+
+.form-group input,
+.form-group textarea {
+    background-color: #1a1c23;
+    border: 1px solid #cbb800;
+    border-radius: 6px;
+    padding: 12px;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #666;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: #ffe600;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #ffe600;
+    color: #000;
+    border: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.2s;
+}
+
+.btn-submit:hover {
+    background-color: #d4c20d;
+}
+
+.status-success {
+    color: #4caf50;
+    margin-bottom: 15px;
+    text-align: center;
 }
