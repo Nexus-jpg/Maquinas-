@@ -75,7 +75,20 @@ CREATE TABLE IF NOT EXISTS manutencoes (
 
 
 
-
+CREATE TABLE IF NOT EXISTS chamados_suporte (
+    id_chamado INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id INT NOT NULL,
+    nome VARCHAR(100) NOT NULL,
+    sobrenome VARCHAR(100) NOT NULL,
+    email VARCHAR(150) NOT NULL,
+    mensagem TEXT NOT NULL,
+    status ENUM('aberto', 'em_atendimento', 'respondido', 'fechado') DEFAULT 'aberto',
+    email_enviado TINYINT(1) DEFAULT 0,
+    criado_em TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_chamados_usuarios
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        ON DELETE CASCADE
+);
 
 
 
