@@ -1,11 +1,9 @@
 <?php
 session_start();
 
-// ==========================================================
-// Só usuário logado pode acessar essa tela
-// ==========================================================
+
 if (!isset($_SESSION['usuario_id'])) {
-    header("Location: Login.php"); // ajuste o nome do arquivo de login se for diferente
+    header("Location: Tela_login.php"); 
     exit;
 }
 
