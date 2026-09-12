@@ -92,6 +92,23 @@ CREATE TABLE IF NOT EXISTS chamados_suporte (
 
 
 
+ALTER TABLE usuarios
+    MODIFY COLUMN tipo_usuario ENUM('cliente', 'dev', 'gerente_dev') NOT NULL DEFAULT 'cliente';
+
+CREATE TABLE IF NOT EXISTS funcionarios (
+    id_funcionario   INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id       INT NOT NULL,
+    nome_funcionario VARCHAR(100) NOT NULL,
+    genero           CHAR(1) NOT NULL CHECK (genero IN ('M', 'F')),
+    nacionalidade    VARCHAR(100) NOT NULL,
+    data_nascimento  DATE NOT NULL,
+    cargo            VARCHAR(67) NOT NULL,
+    salario          DECIMAL(10,2) NOT NULL,
+    tempo_empresa    DATE NOT NULL,
+    CONSTRAINT fk_funcionarios_usuarios
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS enderecos_entrega (
 
@@ -113,6 +130,9 @@ data_inicio DATE NOT NULL,
 data_previsao_volta DATE,     
 status ENUM('em_manutencao', 'per)
 );
+
+
+
 
 
 
