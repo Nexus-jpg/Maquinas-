@@ -46,7 +46,28 @@ CREATE TABLE IF NOT EXISTS maquinarios (
     imagem VARCHAR(255)
 );
 
+ALTER TABLE usuarios
+    MODIFY COLUMN tipo_usuario ENUM('cliente', 'dev', 'gerente_dev', 'socio') NOT NULL DEFAULT 'cliente';
 
+CREATE TABLE IF NOT EXISTS contratos_socios (
+    id_contrato      INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id       INT NOT NULL,
+    maquinario_id    INT NOT NULL,
+    tipo_contrato    ENUM('financiamento', 'desconto_preferencial') NOT NULL,
+    status           ENUM('pendente', 'aprovado', 'recusado') DEFAULT 'pendente',
+    data_solicitacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    data_aprovacao   TIMESTAMP NULL DEFAULT NULL,
+
+    CONSTRAINT fk_contratos_socios_usuarios
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        ON DELETE CASCADE,
+
+    CONSTRAINT fk_contratos_socios_maquinarios
+        FOREIGN KEY (maquinario_id) REFERENCES maquinarios(id_maquinario)
+        ON DELETE CASCADE,
+
+    UNIQUE KEY uq_socio_produto (usuario_id, maquinario_id)
+);
 
 
 CREATE TABLE IF NOT EXISTS funcionários (
