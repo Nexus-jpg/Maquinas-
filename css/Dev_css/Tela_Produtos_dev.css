@@ -1,5 +1,264 @@
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #1D1F28;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.nav-minima {
+    background-color: #1E1E1E;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 14px 20px;
+}
+
+.nav-minima a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    background: linear-gradient(180deg, #3a3f4d 0%, #262a33 100%);
+    border: 1px solid #323745;
+    padding: 9px 16px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-minima a:hover {
+    background: linear-gradient(180deg, #4a4f5d 0%, #323745 100%);
+}
+
+
+main {
+    flex: 1;
+    padding: 30px 20px 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo {
+    width: 100%;
+    max-width: 950px;
+}
+
+.conteudo h1 {
+    font-size: 24px;
+}
+
+.texto-intro {
+    color: #8E8E93;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 22px;
+}
+
+.painel {
+    background: linear-gradient(145deg, #3a3f4d 0%, #1E1E1E 100%);
+    border: 1px solid #323745;
+    border-radius: 6px;
+    padding: 22px;
+    margin-bottom: 24px;
+}
+
+.painel h2 {
+    font-size: 16px;
+    margin-bottom: 16px;
+}
+
+
+.linha-form {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.campo {
+    flex: 1;
+    min-width: 200px;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 14px;
+}
+
+.campo label {
+    color: #8E8E93;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.campo input,
+.campo select,
+.campo textarea {
+    background-color: #323745;
+    border: 1px solid #8E8E93;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 9px 12px;
+    font-size: 14px;
+    outline: none;
+    resize: vertical;
+}
+
+.btn-submit {
+    background: linear-gradient(180deg, #c9c9cd 0%, #8E8E93 100%);
+    color: #1E1E1E;
+    border: none;
+    border-radius: 3px;
+    padding: 12px 20px;
+    font-weight: bold;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.btn-submit:hover {
+    background: linear-gradient(180deg, #a9a9ad 0%, #6f6f74 100%);
+}
+
+
+.lista-produtos {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.linha-cabecalho {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1.2fr 1.6fr;
+    gap: 10px;
+    padding: 0 10px;
+    font-size: 11px;
+    color: #8E8E93;
+}
+
+.linha-produto {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 10px;
+    align-items: center;
+    background-color: #262a33;
+    border: 1px solid #323745;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.form-atualizar {
+    display: grid;
+    grid-template-columns: 2fr 1.5fr 1fr 1.2fr;
+    gap: 10px;
+}
+
+.form-atualizar input,
+.form-atualizar select {
+    background-color: #323745;
+    border: 1px solid #8E8E93;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 7px 9px;
+    font-size: 12px;
+    outline: none;
+    width: 100%;
+}
+
+.acoes-produto {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+}
+
+.btn-salvar {
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    padding: 8px 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-salvar:hover {
+    background-color: #256428;
+}
+
+.form-remover {
+    display: inline;
+}
+
+.btn-remover {
+    background-color: transparent;
+    border: 1px solid #c62828;
+    color: #ff8a8a;
+    border-radius: 3px;
+    padding: 8px 14px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.btn-remover:hover {
+    background-color: #c62828;
+    color: #ffffff;
+}
+
+.sem-dados {
+    text-align: center;
+    color: #8E8E93;
+    padding: 20px;
+}
+.alerta {
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.alerta-sucesso {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.alerta-erro {
+    background-color: #c62828;
+    color: #ffffff;
+}
+
+
+.rodape {
+    background-color: #323745;
+    text-align: center;
+    padding: 14px;
+}
+
+.rodape p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+@media (max-width: 800px) {
+    .linha-cabecalho {
+        display: none;
+    }
+
+    .linha-produto {
+        grid-template-columns: 1fr;
+    }
+
+    .form-atualizar {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .acoes-produto {
+        justify-content: flex-start;
+        margin-top: 6px;
+    }
 }
