@@ -1,6 +1,120 @@
-
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #1D1F28;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.nav-minima {
+    background-color: #1E1E1E;
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    padding: 14px 20px;
+}
+
+.nav-minima a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: bold;
+    background: linear-gradient(180deg, #3a3f4d 0%, #262a33 100%);
+    border: 1px solid #323745;
+    padding: 9px 16px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease;
+}
+
+.nav-minima a:hover {
+    background: linear-gradient(180deg, #4a4f5d 0%, #323745 100%);
+}
+
+
+main {
+    flex: 1;
+    padding: 30px 20px 50px;
+    display: flex;
+    justify-content: center;
+}
+
+.conteudo {
+    width: 100%;
+    max-width: 900px;
+}
+
+.conteudo h1 {
+    font-size: 24px;
+    color: #ffffff;
+    letter-spacing: 0.5px;
+}
+
+.texto-intro {
+    color: #8E8E93;
+    font-size: 14px;
+    margin-top: 8px;
+    margin-bottom: 22px;
+}
+
+.tabela-wrap {
+    overflow-x: auto;
+    background: linear-gradient(145deg, #3a3f4d 0%, #1E1E1E 100%);
+    border: 1px solid #323745;
+    border-radius: 6px;
+    padding: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th {
+    text-align: left;
+    color: #8E8E93;
+    font-weight: normal;
+    padding: 10px 12px;
+    border-bottom: 1px solid #323745;
+    white-space: nowrap;
+}
+
+td {
+    padding: 10px 12px;
+    border-bottom: 1px solid #2a2e38;
+}
+
+.sem-dados {
+    text-align: center;
+    color: #8E8E93;
+    padding: 24px !important;
+}
+
+
+
+.rodape {
+    background-color: #323745;
+    text-align: center;
+    padding: 14px;
+}
+
+.rodape p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 500px) {
+    .nav-minima {
+        flex-direction: column;
+        align-items: center;
+    }
 }
