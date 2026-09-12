@@ -1,5 +1,277 @@
+
 * {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+
+body {
+    background-color: #1D1F28;
+    color: #ffffff;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+.topbar {
+    background-color: #1E1E1E;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.menu {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.btn-menu {
+    background-color: #FFE500;
+    color: #1E1E1E;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 13px;
+    padding: 10px 18px;
+    border-radius: 20px;
+    transition: background-color 0.2s ease, transform 0.15s ease;
+    white-space: nowrap;
+}
+
+.btn-menu:hover {
+    background-color: #BFAC00;
+    color: #ffffff;
+    transform: translateY(-1px);
+}
+
+.logo-wrap img {
+    height: 50px;
+    object-fit: contain;
+}
+
+
+
+.subnav-socio {
+    background-color: #323745;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    flex-wrap: wrap;
+}
+
+.subnav-socio a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 13px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    border: 1px solid #BFAC00;
+    transition: background-color 0.2s ease;
+}
+
+.subnav-socio a:hover {
+    background-color: #BFAC00;
+    color: #1E1E1E;
+}
+
+.subnav-socio a.ativo {
+    background-color: #FFE500;
+    color: #1E1E1E;
+    font-weight: bold;
+    border-color: #FFE500;
+}
+
+
+.titulo-marca {
+    text-align: center;
+    margin: 30px 0 20px;
+    padding: 0 15px;
+}
+
+.titulo-marca h1 {
+    font-size: 34px;
+    color: #FFE500;
+    letter-spacing: 1px;
+}
+
+.titulo-marca h1 span {
+    color: #ffffff;
+}
+
+.titulo-marca .slogan {
+    margin-top: 6px;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    color: #e6e6e6;
+}
+
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    padding: 0 15px 40px;
+}
+
+.conteudo {
+    width: 100%;
+    max-width: 1000px;
+}
+
+.grade-produtos {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 18px;
+}
+
+.card-produto {
+    background-color: #1E1E1E;
+    border: 2px solid #323745;
+    border-radius: 6px;
+    padding: 18px;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-produto h3 {
+    color: #FFE500;
+    font-size: 16px;
+    margin-bottom: 4px;
+}
+
+.categoria {
+    font-size: 12px;
+    color: #8E8E93;
+    margin-bottom: 8px;
+}
+
+.descricao {
+    font-size: 13px;
+    color: #d5d5d5;
+    margin-bottom: 10px;
+    flex: 1;
+}
+
+.valor {
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 14px;
+}
+
+.form-solicitar {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.form-solicitar select {
+    background-color: #323745;
+    border: 1px solid #BFAC00;
+    border-radius: 3px;
+    color: #ffffff;
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.btn-solicitar {
+    background-color: #FFE500;
+    color: #1E1E1E;
+    border: none;
+    border-radius: 3px;
+    padding: 10px;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.btn-solicitar:hover {
+    background-color: #BFAC00;
+    color: #ffffff;
+}
+/
+
+.tag-status {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+}
+
+.tag-pendente {
+    background-color: #BFAC00;
+    color: #1E1E1E;
+}
+
+.tag-aprovado {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.tag-recusado {
+    background-color: #c62828;
+    color: #ffffff;
+}
+
+/* ===================== ALERTAS ===================== */
+
+.alerta {
+    padding: 10px 14px;
+    border-radius: 3px;
+    font-size: 13px;
+    margin-bottom: 18px;
+    text-align: center;
+}
+
+.alerta-sucesso {
+    background-color: #2e7d32;
+    color: #ffffff;
+}
+
+.alerta-erro {
+    background-color: #c62828;
+    color: #ffffff;
+}
+
+
+
+.rodape {
+    background-color: #323745;
+    text-align: center;
+    padding: 14px;
+}
+
+.rodape p {
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+
+@media (max-width: 700px) {
+    .topbar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .menu {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .logo-wrap {
+        align-self: center;
+    }
+
+    .titulo-marca h1 {
+        font-size: 26px;
+    }
 }
