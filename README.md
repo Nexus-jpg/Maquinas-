@@ -27,7 +27,7 @@ Guia e explicação:
 
 ## Protótipo do Layout (Figma)
 Você pode conferir a proposta de design e navegação do projeto pelo link:
-->
+->https://www.figma.com/design/zmclzC0DMOnHotY3NMjDvw/Maquinarios?node-id=0-1&t=OgrWHdTo9o29MXTM-1
 
 1. O Modelo de Dados (package model)
 
