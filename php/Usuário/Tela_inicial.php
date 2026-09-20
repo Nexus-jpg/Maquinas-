@@ -1,7 +1,7 @@
 <?php
 
 
-require_once '../conector/conexao.php';
+require_once __DIR__ . '/../../conector/conexao.php';
 $termo_busca = isset($_GET['busca']) ? $_GET['busca'] : '';
 
 if (!empty($termo_busca)) {
