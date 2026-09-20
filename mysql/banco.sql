@@ -1,15 +1,65 @@
-
 CREATE DATABASE IF NOT EXISTS banco_dados;
 USE banco_dados;
 
+CREATE TABLE IF NOT EXISTS categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nome         VARCHAR(100) NOT NULL UNIQUE,
+    descricao    VARCHAR(255)
+);
+
 CREATE TABLE IF NOT EXISTS usuarios (
     id           INT AUTO_INCREMENT PRIMARY KEY,
-    usuario      VARCHAR(50) NOT NULL UNIQUE,
+    usuario      VARCHAR(120) NOT NULL UNIQUE,
+    email        VARCHAR(150) UNIQUE NOT NULL,
     senha        VARCHAR(255) NOT NULL,
-    tipo_usuario ENUM('cliente', 'dev', 'gerente_dev', 'socio') NOT NULL DEFAULT 'cliente',
+    tipo_usuario ENUM('ADMIN', 'USUARIO', 'cliente', 'dev', 'gerente_dev', 'socio') NOT NULL DEFAULT 'cliente',
     criado_em    TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS maquinarios (
+    id_maquinario INT AUTO_INCREMENT PRIMARY KEY,
+    nome          VARCHAR(120) NOT NULL,
+    descricao     TEXT,
+    valor_diaria  DECIMAL(10,2) NOT NULL DEFAULT 0.00,
+    status        ENUM('DISPONIVEL', 'DISPONÍVEL', 'ALUGADO', 'EM_MANUTENCAO', 'MANUTENCAO') DEFAULT 'DISPONIVEL',
+    imagem        VARCHAR(255),
+    id_categoria  INT NOT NULL,
+    CONSTRAINT fk_maquinarios_categorias
+        FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+        ON DELETE RESTRICT ON UPDATE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS pedidos (
+    Id_pedidos    INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id    INT NOT NULL,
+    maquinario_id INT NOT NULL,
+    valor         DECIMAL(10,2) NOT NULL,
+    data_inicio   DATE NOT NULL,
+    data_fim      DATE NOT NULL,
+    status        ENUM('pendente', 'confirmado', 'em_andamento', 'entregue', 'concluido', 'cancelado', 'ATIVO', 'FINALIZADO') NOT NULL DEFAULT 'pendente',
+    data_pedido   DATETIME DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_pedidos_usuarios
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        ON DELETE CASCADE,
+    CONSTRAINT fk_pedidos_maquinarios
+        FOREIGN KEY (maquinario_id) REFERENCES maquinarios(id_maquinario)
+        ON DELETE CASCADE
+);
+
+CREATE TABLE IF NOT EXISTS agendamentos (
+    id_agendamento INT AUTO_INCREMENT PRIMARY KEY,
+    usuario_id     INT NOT NULL,
+    maquinario_id  INT NOT NULL,
+    data_agendada  DATE NOT NULL,
+    status         ENUM('agendado', 'cancelado', 'realizado') DEFAULT 'agendado',
+    criado_em      TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    CONSTRAINT fk_agendamentos_usuarios
+        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
+        ON DELETE CASCADE,
+    CONSTRAINT fk_agendamentos_maquinarios
+        FOREIGN KEY (maquinario_id) REFERENCES maquinarios(id_maquinario)
+        ON DELETE CASCADE
+);
 
 CREATE TABLE IF NOT EXISTS Clientes (
     id             INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,44 +71,6 @@ CREATE TABLE IF NOT EXISTS Clientes (
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
         ON DELETE CASCADE
 );
-
-
-CREATE TABLE IF NOT EXISTS categorias (
-    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
-    nome         VARCHAR(50) NOT NULL UNIQUE,
-    descricao    VARCHAR(255)
-);
-
-
-CREATE TABLE IF NOT EXISTS maquinarios (
-    id_maquinario INT AUTO_INCREMENT PRIMARY KEY,
-    nome          VARCHAR(100) NOT NULL,
-    descricao     TEXT,
-    categoria     VARCHAR(50),
-    valor_diaria  DECIMAL(10,2) NOT NULL,
-    status        ENUM('disponivel', 'alugado', 'manutencao') DEFAULT 'disponivel',
-    imagem        VARCHAR(255)
-);
-
-
-CREATE TABLE IF NOT EXISTS pedidos (
-    Id_pedidos    INT AUTO_INCREMENT PRIMARY KEY,
-    usuario_id    INT NOT NULL,
-    maquinario_id INT NOT NULL,
-    valor         DECIMAL(10,2) NOT NULL,
-    data_inicio   DATE NOT NULL,
-    data_fim      DATE NOT NULL,
-    status        ENUM('pendente', 'confirmado', 'em_andamento', 'entregue', 'concluido', 'cancelado')
-                      NOT NULL DEFAULT 'pendente',
-    data_pedido   DATETIME DEFAULT CURRENT_TIMESTAMP,
-    CONSTRAINT fk_pedidos_usuarios
-        FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
-        ON DELETE CASCADE,
-    CONSTRAINT fk_pedidos_maquinarios
-        FOREIGN KEY (maquinario_id) REFERENCES maquinarios(id_maquinario)
-        ON DELETE CASCADE
-);
-
 
 CREATE TABLE IF NOT EXISTS avaliacoes (
     id_avaliacao INT AUTO_INCREMENT PRIMARY KEY,
@@ -74,7 +86,6 @@ CREATE TABLE IF NOT EXISTS avaliacoes (
         FOREIGN KEY (usuario_id) REFERENCES usuarios(id)
         ON DELETE CASCADE
 );
-
 
 CREATE TABLE IF NOT EXISTS contratos_socios (
     id_contrato      INT AUTO_INCREMENT PRIMARY KEY,
@@ -92,7 +103,6 @@ CREATE TABLE IF NOT EXISTS contratos_socios (
         ON DELETE CASCADE,
     UNIQUE KEY uq_socio_produto (usuario_id, maquinario_id)
 );
-
 
 CREATE TABLE IF NOT EXISTS chamados_suporte (
     id_chamado    INT AUTO_INCREMENT PRIMARY KEY,
@@ -127,14 +137,14 @@ CREATE TABLE IF NOT EXISTS funcionarios (
 CREATE TABLE IF NOT EXISTS pagamentos (
     id_pagamento    INT AUTO_INCREMENT PRIMARY KEY,
     funcionario_id  INT NOT NULL,
-    mes_referencia  DATE NOT NULL COMMENT 'Use o dia 01 do mês, ex: 2026-09-01 para setembro/2026',
+    mes_referencia  DATE NOT NULL,
     salario_base    DECIMAL(10,2) NOT NULL,
     bonus           DECIMAL(10,2) NOT NULL DEFAULT 0,
     descontos       DECIMAL(10,2) NOT NULL DEFAULT 0,
     valor_liquido   DECIMAL(10,2) NOT NULL,
     status          ENUM('pendente', 'pago') DEFAULT 'pendente',
     data_pagamento  DATE,
-    comprovante     VARCHAR(255) COMMENT 'Caminho do extrato/holerite em PDF, se tiver',
+    comprovante     VARCHAR(255),
     CONSTRAINT fk_pagamentos_funcionarios
         FOREIGN KEY (funcionario_id) REFERENCES funcionarios(id_funcionario)
         ON DELETE CASCADE
@@ -151,7 +161,6 @@ CREATE TABLE IF NOT EXISTS pagamentos_pedidos (
         FOREIGN KEY (pedido_id) REFERENCES pedidos(Id_pedidos)
         ON DELETE CASCADE
 );
-
 
 CREATE TABLE IF NOT EXISTS manutencoes (
     id_manutencao INT AUTO_INCREMENT PRIMARY KEY,
@@ -181,7 +190,6 @@ CREATE TABLE IF NOT EXISTS enderecos_entrega (
         ON DELETE CASCADE
 );
 
-
 CREATE TABLE IF NOT EXISTS contratos (
     id_contrato     INT AUTO_INCREMENT PRIMARY KEY,
     pedido_id       INT NOT NULL UNIQUE,
@@ -204,7 +212,6 @@ CREATE TABLE IF NOT EXISTS devolucoes (
         FOREIGN KEY (pedido_id) REFERENCES pedidos(Id_pedidos)
         ON DELETE CASCADE
 );
-
 
 CREATE TABLE IF NOT EXISTS maquinarios_inutilizados (
     id_inutilizado      INT AUTO_INCREMENT PRIMARY KEY,
