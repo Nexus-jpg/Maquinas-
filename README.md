@@ -39,7 +39,3 @@ Você pode conferir a proposta de design e navegação do projeto pelo link:
 
 
 Clonar o Repositório
-
-Vídeo (Pitch) do projeto:
-
-Link do vídeo: 
