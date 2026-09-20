@@ -23,8 +23,8 @@ $maquinas = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HeavyRent - Início</title>
-  <link rel="stylesheet" href="teste01.css">
+  <title>HeavyRent - Início</title
+  <link rel="stylesheet" href="../css/Tela_inicial.css">                             
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
